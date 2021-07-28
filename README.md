@@ -2,7 +2,7 @@
 
 A website to share and store your pictures of precious memories.
 
-<strong>Status: Currently being built <br>
+<strong>Status: In Development <br>
 Website: Will be deployed soon</strong>
 
 ---

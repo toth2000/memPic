@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import {Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
+import {useDispatch} from 'react-redux'; //It is a hook, used to create redux action
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import useStyles from './style';
+import memories from './images/img-logo.png';
+import Form from './components/forms/Forms';
+import Posts from './components/posts/Posts';
+import {getPosts} from './actions/posts';
+
+const App = ()=>{
+    const classes = useStyles();
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(getPosts()); //Dispatching action
+    }, [dispatch]);
+
+    return(
+        <Container maxWidth="lg">
+            <AppBar className={classes.appBar} position="static" color="inherit">
+                <Typography className={classes.heading} variant="h2" align="center">
+                    Memories
+                </Typography>
+                <img className={classes.image} src={memories} alt="memories" height="60" />
+            </AppBar>
+            <Grow in>
+                <Container>
+                    <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+                        <Grid item xs={12} sm={7}>
+                            <Posts />
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                            <Form />
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Grow>
+        </Container>
+    )
+
 }
 
 export default App;

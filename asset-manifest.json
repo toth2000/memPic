@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/chatBit/static/js/main.f338bc86.chunk.js",
+    "main.js.map": "/chatBit/static/js/main.f338bc86.chunk.js.map",
+    "runtime-main.js": "/chatBit/static/js/runtime-main.32121de4.js",
+    "runtime-main.js.map": "/chatBit/static/js/runtime-main.32121de4.js.map",
+    "static/js/2.2daaea49.chunk.js": "/chatBit/static/js/2.2daaea49.chunk.js",
+    "static/js/2.2daaea49.chunk.js.map": "/chatBit/static/js/2.2daaea49.chunk.js.map",
+    "index.html": "/chatBit/index.html",
+    "static/js/2.2daaea49.chunk.js.LICENSE.txt": "/chatBit/static/js/2.2daaea49.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.32121de4.js",
+    "static/js/2.2daaea49.chunk.js",
+    "static/js/main.f338bc86.chunk.js"
+  ]
+}

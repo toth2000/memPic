@@ -2,8 +2,7 @@
 
 A website to share and store your pictures of precious memories.
 
-<strong>Status: Currently being built
-Website: Will be deployed soon</strong>
+Website: https://toth2000.github.io/memPic
 
 ---
 ## Requirements

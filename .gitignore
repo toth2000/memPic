@@ -25,3 +25,4 @@ yarn-error.log*
 
 #server folder 
 /server/.env
+/server/node_modules

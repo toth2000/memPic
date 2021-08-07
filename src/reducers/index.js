@@ -1,9 +1,8 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from "redux";
 
-import posts from './posts';
-
+import posts from "./posts";
 
 /**It combines all reducers together */
 export default combineReducers({
-    posts: posts,
+  posts: posts,
 });

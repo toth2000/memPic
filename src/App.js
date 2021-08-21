@@ -7,16 +7,15 @@ import Home from "./components/home/Home";
 import Auth from "./components/auth/Auth";
 
 const App = () => {
-
   return (
-    <BrowserRouter>
-    <Container maxWidth="lg">
-      <NavBar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/auth" exact component={Auth} />
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Container maxWidth="lg">
+        <NavBar />
+        <Switch basename>
+          <Route path="/" exact component={Home} />
+          <Route path="/auth" exact component={Auth} />
         </Switch>
-    </Container>
+      </Container>
     </BrowserRouter>
   );
 };

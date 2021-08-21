@@ -11,8 +11,9 @@ const Forms = ({ currentId, setCurrentId }) => {
     currentId !== null ? state.posts.find((x) => x._id === currentId) : null
   );
 
+  const user = JSON.parse(localStorage.getItem("profile"));
+
   const [postData, setPostData] = useState({
-    creator: "",
     title: "",
     message: "",
     tags: "",
@@ -30,14 +31,18 @@ const Forms = ({ currentId, setCurrentId }) => {
     event.preventDefault();
 
     if (currentId === null) {
-      dispatch(createPost(postData));
+      try {
+        dispatch(createPost({ ...postData, name: user.result.name }));
+      } catch (error) {
+        console.log("form handle submit", error);
+      }
       clearForm();
-    } else dispatch(updatePost(currentId, postData));
+    } else
+      dispatch(updatePost(currentId, { ...postData, name: user.result.name }));
   };
 
   const clearForm = () => {
     setPostData({
-      creator: "",
       title: "",
       message: "",
       tags: [],
@@ -45,6 +50,16 @@ const Forms = ({ currentId, setCurrentId }) => {
     });
     setCurrentId(null);
   };
+
+  if (!user?.result?.name) {
+    return (
+      <Paper className={classess.paper}>
+        <Typography variant="h6" align="center">
+          Please Sign In to create your own memories and like others memory
+        </Typography>
+      </Paper>
+    );
+  }
 
   return (
     <Paper className={classess.paper}>
@@ -57,16 +72,6 @@ const Forms = ({ currentId, setCurrentId }) => {
         <Typography variant="h6">
           {!currentId ? "Creating A Memory" : "Editing a Memory"}
         </Typography>
-        <TextField
-          name="creator"
-          variant="outlined"
-          label="Creator"
-          fullWidth
-          value={postData.creator}
-          onChange={(event) =>
-            setPostData({ ...postData, creator: event.target.value })
-          }
-        />
         <TextField
           name="title"
           variant="outlined"

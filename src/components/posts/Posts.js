@@ -11,7 +11,6 @@ const Posts = ({setCurrentId})=>{
         return state.posts;
     });
     
-    console.log('Fetched Posts', posts);
 
     return (
         (posts.length===0) ? 

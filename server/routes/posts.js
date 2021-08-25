@@ -1,4 +1,5 @@
 const express = require("express");
+
 const {
   getPosts,
   createPost,
@@ -6,13 +7,17 @@ const {
   deletePost,
   likePost,
 } = require("../controller/posts.js");
+const { auth } = require("../middleware/auth.js");
+
 
 const router = express.Router(); //Express Router
 
 router.get("/", getPosts);
-router.post("/", createPost);
-router.patch("/:id", updatePost);
-router.delete("/:id", deletePost);
-router.patch("/:id/likePost", likePost);
+
+router.post("/", auth, createPost);
+router.patch("/:id", auth, updatePost);
+router.delete("/:id", auth, deletePost);
+router.patch("/:id/likePost", auth, likePost);
 
 module.exports = router;
+

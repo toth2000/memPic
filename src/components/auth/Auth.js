@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import dotenv from "dotenv";
 import {
   Avatar,
   Button,
@@ -27,8 +28,9 @@ const initalFormData = {
 };
 
 const Auth = () => {
-  const classes = useStyle();
+  dotenv.config();
 
+  const classes = useStyle();
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState(initalFormData);
@@ -136,7 +138,7 @@ const Auth = () => {
             {isSignUp ? "Sign Up" : "Sign In"}
           </Button>
           <GoogleLogin
-            clientId="733936391308-nlssref1nbrudt9vvif8ktj7srup4rdl.apps.googleusercontent.com"
+            clientId={process.env.REACT_APP_O_AUTH_CLIENT_ID}
             render={(renderProps) => (
               <Button
                 className={classes.googleButton}
